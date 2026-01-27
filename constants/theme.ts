@@ -5,27 +5,17 @@
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
 
 export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
-};
+  background: '#000000',
+  text: '#FFFFFF',
+  textSecondary: '#b3b3b3',
+  orange: '#FF9500',
+  textTertiary: '#555555',
+  textError: '#FF4500',
+  buttonBackground: '#2e2e2e',
+  black: '#000000',
+} as const;
 
 export const Fonts = Platform.select({
   ios: {
