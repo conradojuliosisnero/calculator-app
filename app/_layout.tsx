@@ -1,11 +1,18 @@
 import { Slot } from "expo-router";
-import { View, StatusBar } from "react-native";
+import { View, StatusBar, Platform } from "react-native";
 import { useFonts } from "expo-font";
 import { globalStyles } from "@/styles/global-styles";
+import * as NavigationBar from "expo-navigation-bar";
+
+const isAndroid = Platform.OS === "android";
+
+if (isAndroid) {
+  NavigationBar.setBackgroundColorAsync("#000000");
+}
 
 const RootLayout = () => {
-  const [loaded,error] = useFonts({
-    "SpaceMono": require("../assets/fonts/SpaceMono-Regular.ttf"),
+  const [loaded, error] = useFonts({
+    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   if (!loaded) {
