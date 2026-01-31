@@ -6,16 +6,32 @@ import { Colors } from "@/constants/theme";
 import { useCalculator } from "@/hooks/useCalculator";
 
 const Calculator = () => {
-  const { formula, number, prevNumber, buildNumber } = useCalculator();
+  const {
+    formula,
+    prevNumber,
+    buildNumber,
+    clean,
+    toggleSign,
+    deleteLastDigit,
+    divideOperation,
+    multiplyOperation,
+    subtractOperation,
+    addOperation,
+    calculateResult,
+  } = useCalculator();
 
   return (
     <View style={globalStyles.CalculatorContainer}>
       {/* box reslts  */}
       <View style={{ paddingHorizontal: 20, marginBottom: 100 }}>
         <ThemeText variant="h1" style={globalStyles.MainResult}>
-          {number}
+          {formula}
         </ThemeText>
-        <ThemeText variant="h2">{formula}</ThemeText>
+        {formula === prevNumber ? (
+          <ThemeText variant="h2"></ThemeText>
+        ) : (
+          <ThemeText variant="h2">{prevNumber}</ThemeText>
+        )}
       </View>
 
       {/* buttons grid  */}
@@ -24,24 +40,24 @@ const Calculator = () => {
         <ThemeButton
           blackText
           color={Colors.textSecondary}
-          onPress={() => buildNumber("C")}
+          onPress={() => clean()}
           label="C"
         />
         <ThemeButton
           blackText
           color={Colors.textSecondary}
-          onPress={() => buildNumber("+/-")}
+          onPress={() => toggleSign()}
           label="+/-"
         />
         <ThemeButton
           blackText
           color={Colors.textSecondary}
-          onPress={() => buildNumber("del")}
+          onPress={() => deleteLastDigit()}
           label="del"
         />
         <ThemeButton
           color={Colors.orange}
-          onPress={() => buildNumber("÷")}
+          onPress={() => divideOperation()}
           label="÷"
         />
       </View>
@@ -51,7 +67,7 @@ const Calculator = () => {
         <ThemeButton onPress={() => buildNumber("9")} label="9" />
         <ThemeButton
           color={Colors.orange}
-          onPress={() => buildNumber("x")}
+          onPress={() => multiplyOperation()}
           label="x"
         />
       </View>
@@ -61,7 +77,7 @@ const Calculator = () => {
         <ThemeButton onPress={() => buildNumber("6")} label="6" />
         <ThemeButton
           color={Colors.orange}
-          onPress={() => buildNumber("-")}
+          onPress={() => subtractOperation()}
           label="-"
         />
       </View>
@@ -71,7 +87,7 @@ const Calculator = () => {
         <ThemeButton onPress={() => buildNumber("3")} label="3" />
         <ThemeButton
           color={Colors.orange}
-          onPress={() => buildNumber("+")}
+          onPress={() => addOperation()}
           label="+"
         />
       </View>
@@ -80,7 +96,7 @@ const Calculator = () => {
         <ThemeButton onPress={() => buildNumber(".")} label="." />
         <ThemeButton
           color={Colors.orange}
-          onPress={() => buildNumber("=")}
+          onPress={() => calculateResult()}
           label="="
         />
       </View>

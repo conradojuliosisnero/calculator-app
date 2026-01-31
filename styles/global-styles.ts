@@ -18,7 +18,7 @@ export const globalStyles = StyleSheet.create({
     CalculatorContainer: {
         flex: 1,
         justifyContent: "flex-end",
-        alignItems: "center",
+        alignItems: "flex-end",
         paddingBottom: 50,
     },
 
@@ -39,7 +39,7 @@ export const globalStyles = StyleSheet.create({
 
     row: {
         flexDirection: "row",
-        justifyContent: "center",
+        justifyContent: "flex-end",
         marginBottom: 18,
         paddingHorizontal: 10,
     },
